@@ -1,0 +1,23 @@
+.bg-dark {
+  background-color: rgb(56, 56, 56);
+}
+.text-white {
+  color: white;
+}
+.text-underline {
+  text-decoration: underline;
+}
+.custom-image {
+  border-radius: 20px;
+  padding: 10px;
+  width: calc(100% - 20px);
+}
+
+.violetBackground {
+  background-color: blueviolet;
+}
+.violetBackground button,
+.violetBackground div {
+  color: white;
+  border-color: white;
+}

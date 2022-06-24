@@ -4,7 +4,7 @@ import {
   ProductImage,
   ProductTitle,
 } from '../components'
-import coffee from './coffee-mug.png'
+import coffee from '../assets/coffee-mug.png'
 const product = {
   id: '1',
   title: 'Coffee Mug',
@@ -18,15 +18,21 @@ export const ShoppingPage = () => {
 
       <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
         <ProductCard product={product}>
-          <ProductCard.Image img='' />
+          <ProductCard.Image img={coffee} />
           <ProductCard.Title />
           <ProductCard.Buttons />
         </ProductCard>
 
         {/* FORMA tradicional--> */}
-        <ProductCard product={product}>
-          <ProductImage img='' />
-          <ProductTitle title='Titulo en etiqueta' />
+        <ProductCard product={product} className='violetBackground'>
+          <ProductImage img={coffee} className='custom-image' />
+          <ProductTitle title='Titulo en etiqueta' className='text-white' />
+          <ProductButtons className='text-white' />
+        </ProductCard>
+
+        <ProductCard product={product} style={{ backgroundColor: '#70d1f8' }}>
+          <ProductImage img={coffee} className='custom-image' />
+          <ProductTitle />
           <ProductButtons />
         </ProductCard>
       </div>
