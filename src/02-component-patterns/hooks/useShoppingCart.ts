@@ -14,41 +14,23 @@ export const useShopingCart = () => {
     product: Product
   }) => {
     setShoppingCart((prevCart) => {
-      const productInCart: ProductInCart = prevCart[product.id] || {
-        ...product,
-        count: 0,
+      if (count === 0) {
+        //2 FORMAS
+
+        // const newCart = prevCart
+        // delete newCart[product.id]
+        // return {
+        //   ...newCart,
+        // }
+
+        const { [product.id]: toDelete, ...rest } = prevCart
+        return { ...rest }
       }
 
-      if (Math.max(productInCart.count + count, 0) > 0) {
-        productInCart.count += count
-
-        return {
-          ...prevCart,
-          [product.id]: productInCart,
-        }
+      return {
+        ...prevCart,
+        [product.id]: { ...product, count },
       }
-
-      //Borrar producto
-      const { [product.id]: toDelete, ...rest } = prevCart
-      return { ...rest }
-
-      //   if (count === 0) {
-      //     //2 FORMAS
-
-      //     // const newCart = prevCart
-      //     // delete newCart[product.id]
-      //     // return {
-      //     //   ...newCart,
-      //     // }
-
-      //     const { [product.id]: toDelete, ...rest } = prevCart
-      //     return { ...rest }
-      //   }
-
-      //   return {
-      //     ...prevCart,
-      //     [product.id]: { ...product, count },
-      //   }
     })
   }
 
